@@ -34,3 +34,44 @@ function getComputerChoice() {
 //     return [counterRock, counterPaper, counterScissors]
 // }
 
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase()
+    computerSelection = computerSelection.toLowerCase()
+
+    if (playerSelection == computerSelection) {
+        return `Tie: ${playerSelection} equals ${computerSelection}`
+    }
+    switch (playerSelection) {
+        case 'rock':
+            if (computerSelection == 'paper') {
+                return `You lose: ${playerSelection} loses against ${computerSelection}`
+            }
+            if (computerSelection == 'scissors') {
+                return `You win: ${playerSelection} beats ${computerSelection}`
+            }
+            break
+        case 'paper':
+            if (computerSelection == 'scissors') {
+                return `You lose: ${playerSelection} loses against ${computerSelection}`
+            }
+            if (computerSelection == 'rock') {
+                return `You win: ${playerSelection} beats ${computerSelection}`
+            }
+            break
+        case 'scissors':
+            if (computerSelection == 'rock') {
+                return `You lose: ${playerSelection} loses against ${computerSelection}`
+            }
+            if (computerSelection == 'paper') {
+                return `You win: ${playerSelection} beats ${computerSelection}`
+            }
+            break
+        default:
+            return "Bad value entered"
+    }   
+}
+
+
+const playerSelection = "paper";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
