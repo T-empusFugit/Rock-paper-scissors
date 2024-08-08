@@ -1,4 +1,33 @@
 
+let btnRock = document.querySelector("#rock");
+let btnPaper = document.querySelector("#paper");
+let btnScissors = document.querySelector("#scissors");
+
+let result = document.querySelector(".result");
+
+console.log("Hello");
+console.log(typeof(btnRock));
+
+btnRock.addEventListener("click", () => {
+    resultRound = playRound("rock", getComputerChoice());
+    console.log(resultRound)
+
+    let resultDiv = document.createElement("div");
+    resultDiv.textContent = resultRound
+
+    result.appendChild(resultDiv)
+
+
+    
+})
+
+
+btnPaper.addEventListener("click", () => {
+    console.log("coucou");
+})
+
+
+
 function getComputerChoice() {
     const computerAnswer = Math.floor(Math.random()*3);
     if (computerAnswer == 0) {
@@ -71,14 +100,14 @@ function playRound(playerSelection, computerSelection) {
     }   
 }
 
-function playGame(numRound) {
+function playGame(numRound, playerInput) {
     let playerSelection = ""
     let computerSelection = ""
 
     let counterPlayer = 0
     let counterComputer = 0
     for (let i=1; i<=numRound; i+=1) {
-        playerSelection = String(prompt("Choose between Paper, Rock and Scissors"))
+        playerSelection = playerInput;
         computerSelection = computerSelection = getComputerChoice();
         result = playRound(playerSelection, computerSelection)
         // console.log(result)
